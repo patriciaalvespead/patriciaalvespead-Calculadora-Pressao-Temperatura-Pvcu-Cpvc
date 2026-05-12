@@ -5,335 +5,260 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora de Pressão por Temperatura | PVC-U e CPVC</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      background: #f3f6f9;
-      color: #1f2933;
-      padding: 24px;
-    }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 18px;
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { background: #eef3f7; color: #0f172a; padding: 22px; }
+    .site { max-width: 1120px; margin: 0 auto; }
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #115e59);
+      color: white;
+      border-radius: 22px 22px 0 0;
       padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .logo {
+      width: 68px; height: 68px; border-radius: 18px;
+      background: rgba(255,255,255,.14);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.22);
+      font-weight: 900; font-size: 22px;
+    }
+    .hero h1 { font-size: 28px; margin-bottom: 7px; }
+    .hero p { color: #dbeafe; line-height: 1.5; max-width: 760px; }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .link-btn, .print-btn {
+      border: none; border-radius: 12px; padding: 13px 16px; color: white;
+      text-decoration: none; font-weight: 800; cursor: pointer; display: inline-block;
+    }
+    .link-btn { background: #14b8a6; }
+    .print-btn { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.24); }
+    .container {
+      background: #ffffff; border-radius: 0 0 22px 22px; padding: 28px;
       box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
     }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #0f172a;
+    .intro { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .intro h2 { font-size: 27px; margin-bottom: 8px; }
+    .intro p { color: #475569; line-height: 1.5; max-width: 760px; }
+    .badge { background:#ecfeff; color:#155e75; padding:10px 14px; border-radius:12px; border:1px solid #a5f3fc; font-weight:800; height:max-content; }
+    .warning-box, .legal-box {
+      padding: 14px 16px; border-radius: 12px; margin-bottom: 22px; font-size: 14px; line-height: 1.5;
     }
-
-    .subtitle {
-      color: #52616f;
-      margin-bottom: 24px;
-      line-height: 1.5;
+    .warning-box { background: #fff7ed; border-left: 5px solid #f97316; }
+    .legal-box { background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; }
+    .mode-box { background:#f1f5f9; border:1px solid #dbe3ef; border-radius:16px; padding:14px; margin-bottom:20px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .mode-box strong { margin-right: 8px; }
+    .mode-option { display:flex; gap:6px; align-items:center; font-weight:700; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 22px; }
+    label { font-weight: 800; display: block; margin-bottom: 7px; color: #0f172a; }
+    input, select, textarea {
+      width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 15px; background: #fff;
     }
-
-    .warning-box {
-      background: #fff7ed;
-      border-left: 5px solid #f97316;
-      padding: 14px 16px;
-      border-radius: 10px;
-      margin-bottom: 24px;
-      font-size: 14px;
-      line-height: 1.5;
+    textarea { min-height: 82px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12); }
+    .button-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    button { padding: 15px; border: none; border-radius: 12px; color: white; font-size: 16px; font-weight: 800; cursor: pointer; transition: 0.2s; }
+    .calc-btn { background: #0f766e; flex: 1; min-width: 250px; }
+    .clear-btn { background: #334155; min-width: 180px; }
+    button:hover, .link-btn:hover, .print-btn:hover { filter: brightness(.94); }
+    .results { display: none; margin-top: 28px; }
+    .comparison-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .result-card { border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px; background: #f8fafc; }
+    .result-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
+    .result-card h3 { font-size: 23px; }
+    .traffic { width: 54px; height: 54px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-weight:900; color:white; }
+    .traffic.safe { background:#16a34a; }
+    .traffic.attention { background:#f59e0b; }
+    .traffic.danger { background:#dc2626; }
+    .metric { display: flex; justify-content: space-between; border-bottom: 1px solid #e5e7eb; padding: 9px 0; font-size: 15px; gap:12px; }
+    .metric strong { color: #111827; text-align:right; }
+    .status { margin-top: 16px; padding: 13px; border-radius: 12px; font-weight: 800; line-height: 1.4; }
+    .safe-box { background: #dcfce7; color: #166534; }
+    .attention-box { background: #fef3c7; color: #92400e; }
+    .danger-box { background: #fee2e2; color: #991b1b; }
+    .chart-box { background:#ffffff; border:1px solid #e2e8f0; border-radius:18px; padding:20px; margin-top:18px; }
+    .chart-row { display:grid; grid-template-columns: 120px 1fr 72px; gap:12px; align-items:center; margin:12px 0; }
+    .bar-bg { background:#e5e7eb; height:18px; border-radius:999px; overflow:hidden; }
+    .bar { height:100%; border-radius:999px; }
+    .bar.pn { background:#64748b; }
+    .bar.reduzida { background:#0f766e; }
+    .bar.operacao { background:#ef4444; }
+    .recommendation, .copy-box { border-radius: 16px; margin-top: 18px; line-height: 1.5; padding:18px; }
+    .recommendation { background: #eef2ff; border-left: 5px solid #4f46e5; }
+    .copy-box { background:#f0fdfa; border:1px solid #99f6e4; }
+    .copy-box textarea { margin-top:10px; background:#fff; }
+    .technical-only { display: block; }
+    .commercial-mode .technical-only { display: none; }
+    .disclaimer { margin-top: 24px; font-size: 13px; color: #64748b; line-height: 1.5; }
+    @media (max-width: 760px) {
+      body { padding: 10px; }
+      .hero { grid-template-columns: 1fr; padding: 22px; }
+      .hero-actions { justify-content:flex-start; }
+      .form-grid, .comparison-grid { grid-template-columns: 1fr; }
+      .container { padding: 20px; }
+      .intro h2 { font-size: 23px; }
     }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    label {
-      font-weight: 700;
-      display: block;
-      margin-bottom: 7px;
-      color: #263442;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      font-size: 15px;
-      background: #fff;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 12px;
-      background: #0f766e;
-      color: white;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #115e59;
-    }
-
-    .results {
-      display: none;
-      margin-top: 28px;
-      gap: 18px;
-    }
-
-    .result-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 20px;
-      background: #f8fafc;
-      margin-bottom: 16px;
-    }
-
-    .result-card h2 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .metric {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 9px 0;
-      font-size: 15px;
-    }
-
-    .metric strong {
-      color: #111827;
-    }
-
-    .status {
-      margin-top: 16px;
-      padding: 13px;
-      border-radius: 12px;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .safe {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .attention {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .danger {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .recommendation {
-      background: #eef2ff;
-      border-left: 5px solid #4f46e5;
-      padding: 18px;
-      border-radius: 14px;
-      margin-top: 18px;
-      line-height: 1.5;
-    }
-
-    .disclaimer {
-      margin-top: 24px;
-      font-size: 13px;
-      color: #64748b;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 700px) {
-      body {
-        padding: 12px;
-      }
-
-      .container {
-        padding: 20px;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
+    @media print {
+      body { background:white; padding:0; }
+      .hero-actions, .button-row, .mode-box { display:none; }
+      .site { max-width:100%; }
+      .container, .hero { box-shadow:none; border-radius:0; }
     }
   </style>
 </head>
 <body>
-  <header style="background:#0f172a;padding:18px 28px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
-    <div>
-      <h2 style="color:white;font-size:24px;margin-bottom:6px;">Patricia Alves | Engenharia Comercial</h2>
-      <p style="color:#cbd5e1;font-size:14px;line-height:1.5;max-width:700px;">
-        Calculadora técnica preliminar para análise de pressão por temperatura em sistemas PVC-U e CPVC.
+  <div class="site" id="app">
+    <header class="hero">
+      <div class="brand">
+        <div class="logo">PA</div>
+        <div>
+          <h1>Patricia Alves | Engenharia Comercial</h1>
+          <p>Calculadora preliminar para comparação de PVC-U e CPVC considerando pressão, temperatura e condição de aplicação.</p>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="link-btn" href="https://linktr.ee/patriciaalvespead" target="_blank">Meus contatos</a>
+        <button class="print-btn" onclick="window.print()">Gerar PDF</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="intro">
+        <div>
+          <h2>Calculadora de Pressão por Temperatura</h2>
+          <p>Compare a pressão estimada para PVC-U e CPVC. Use como apoio comercial/técnico inicial, nunca como aprovação final de projeto.</p>
+        </div>
+        <div class="badge">PVC-U • CPVC • Pré-análise</div>
+      </section>
+
+      <div class="warning-box">
+        <strong>Atenção:</strong> quanto maior a temperatura do fluido, menor tende a ser a pressão admissível do sistema. A temperatura do fluido é a temperatura dentro da tubulação, não necessariamente a temperatura da casa de bombas.
+      </div>
+
+      <div class="legal-box">
+        <strong>Proteção técnica:</strong> ferramenta preliminar sem responsabilidade de projeto. O resultado depende de validação com engenharia, catálogo oficial do fabricante, compatibilidade química, norma aplicável, instalação, vida útil de projeto e condições reais de operação.
+      </div>
+
+      <div class="mode-box">
+        <strong>Modo de visualização:</strong>
+        <label class="mode-option"><input type="radio" name="modo" value="comercial" onchange="alterarModo()"> Comercial</label>
+        <label class="mode-option"><input type="radio" name="modo" value="tecnico" checked onchange="alterarModo()"> Técnico</label>
+      </div>
+
+      <section class="form-grid">
+        <div>
+          <label for="linha">Linha / base de cálculo</label>
+          <select id="linha">
+            <option value="preliminar" selected>Preliminar - fatores genéricos</option>
+            <option value="aqua" disabled>Aqua Plastic oficial - inserir tabela técnica</option>
+            <option value="din" disabled>DIN - inserir tabela técnica</option>
+            <option value="sch80" disabled>SCH80 - inserir tabela técnica</option>
+          </select>
+        </div>
+        <div>
+          <label for="pn">Pressão nominal da peça / tubo</label>
+          <select id="pn">
+            <option value="6">PN 6 bar</option>
+            <option value="10">PN 10 bar</option>
+            <option value="16" selected>PN 16 bar</option>
+            <option value="20">PN 20 bar</option>
+            <option value="25">PN 25 bar</option>
+          </select>
+        </div>
+        <div>
+          <label for="pressaoOperacao">Pressão real de operação do cliente (bar)</label>
+          <input type="number" id="pressaoOperacao" min="0" step="0.1" placeholder="Ex.: 8" />
+        </div>
+        <div>
+          <label for="temperaturaFluido">Temperatura do fluido dentro da tubulação (°C)</label>
+          <input type="number" id="temperaturaFluido" min="0" max="110" step="1" placeholder="Ex.: 45" />
+        </div>
+        <div>
+          <label for="temperaturaAmbiente">Temperatura ambiente aproximada (°C)</label>
+          <input type="number" id="temperaturaAmbiente" min="0" max="80" step="1" placeholder="Ex.: 30" />
+        </div>
+        <div>
+          <label for="instalacao">Tipo de instalação</label>
+          <select id="instalacao">
+            <option value="interna">Interna / protegida</option>
+            <option value="aparente">Aparente ventilada</option>
+            <option value="sol">Exposta ao sol</option>
+            <option value="enterrada">Enterrada</option>
+            <option value="casa-maquinas">Casa de máquinas / ambiente quente</option>
+          </select>
+        </div>
+        <div>
+          <label for="golpeAriete">Existe risco de golpe de aríete?</label>
+          <select id="golpeAriete">
+            <option value="nao">Não informado / não</option>
+            <option value="sim">Sim</option>
+          </select>
+        </div>
+        <div>
+          <label for="fluido">Tipo de fluido</label>
+          <select id="fluido">
+            <option value="agua-fria">Água fria</option>
+            <option value="agua-quente">Água quente</option>
+            <option value="quimico">Produto químico</option>
+            <option value="efluente">Efluente</option>
+            <option value="nao-informado">Não informado</option>
+          </select>
+        </div>
+        <div>
+          <label for="margemSeguranca">Margem de segurança desejada</label>
+          <select id="margemSeguranca">
+            <option value="1.00">Sem margem extra</option>
+            <option value="0.90" selected>Conservadora - 10%</option>
+            <option value="0.80">Alta segurança - 20%</option>
+          </select>
+        </div>
+      </section>
+
+      <div class="button-row">
+        <button class="calc-btn" onclick="calcular()">Calcular e comparar materiais</button>
+        <button class="clear-btn" onclick="limparFormulario()">Limpar dados</button>
+      </div>
+
+      <section id="results" class="results">
+        <div class="comparison-grid">
+          <div id="pvcuCard" class="result-card"></div>
+          <div id="cpvcCard" class="result-card"></div>
+        </div>
+
+        <div class="chart-box">
+          <h3>Comparação visual de pressão</h3>
+          <div id="chartContent"></div>
+        </div>
+
+        <div id="recommendation" class="recommendation"></div>
+
+        <div class="copy-box">
+          <strong>Texto para copiar e enviar ao cliente:</strong>
+          <textarea id="textoCliente" readonly></textarea>
+        </div>
+      </section>
+
+      <p class="disclaimer">
+        Base atual: fatores preliminares genéricos para construir a lógica da calculadora. Para uso comercial mais forte, substituir pela tabela oficial de redução de pressão por temperatura do fabricante/linha correspondente. Os catálogos de medidas de PVC-U e CPVC não substituem a tabela de derating térmico.
       </p>
-    </div>
-
-    <a href="https://linktr.ee/patriciaalvespead" target="_blank" style="background:#14b8a6;color:white;padding:14px 18px;border-radius:12px;text-decoration:none;font-weight:700;transition:0.2s;display:inline-block;">
-      Meus contatos
-    </a>
-  </header>
-
-  <main class="container" style="border-radius:0 0 18px 18px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
-      <div>
-        <h1>Calculadora de Pressão por Temperatura</h1>
-      </div>
-
-      <div style="background:#ecfeff;padding:10px 14px;border-radius:12px;border:1px solid #a5f3fc;">
-        <strong style="color:#155e75;">PVC-U • CPVC • Engenharia Aplicada</strong>
-      </div>
-    </div>
-    <p class="subtitle">
-      Compare PVC-U e CPVC considerando pressão nominal, temperatura de trabalho e condição de instalação.
-      O objetivo é indicar uma pré-análise de segurança para seleção do material.
-    </p>
-
-    <div class="warning-box">
-      <strong>Atenção:</strong> esta ferramenta não substitui projeto, norma técnica, catálogo do fabricante ou análise química do fluido.
-      Ela serve como apoio preliminar para reduzir erro comercial e evitar seleção inadequada por temperatura.
-    </div>
-
-    <section class="form-grid">
-      <div>
-        <label for="pn">Pressão nominal da peça / tubo</label>
-        <select id="pn">
-          <option value="6">PN 6 bar</option>
-          <option value="10">PN 10 bar</option>
-          <option value="16" selected>PN 16 bar</option>
-          <option value="20">PN 20 bar</option>
-          <option value="25">PN 25 bar</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="pressaoOperacao">Pressão real de operação do cliente (bar)</label>
-        <input type="number" id="pressaoOperacao" min="0" step="0.1" placeholder="Ex.: 8" />
-      </div>
-
-      <div>
-        <label for="temperaturaFluido">Temperatura do fluido (°C)</label>
-        <input type="number" id="temperaturaFluido" min="0" max="110" step="1" placeholder="Ex.: 45" />
-      </div>
-
-      <div>
-        <label for="temperaturaAmbiente">Temperatura ambiente aproximada (°C)</label>
-        <input type="number" id="temperaturaAmbiente" min="0" max="80" step="1" placeholder="Ex.: 30" />
-      </div>
-
-      <div>
-        <label for="instalacao">Tipo de instalação</label>
-        <select id="instalacao">
-          <option value="interna">Interna / protegida</option>
-          <option value="aparente">Aparente ventilada</option>
-          <option value="sol">Exposta ao sol</option>
-          <option value="enterrada">Enterrada</option>
-          <option value="casa-maquinas">Casa de máquinas / ambiente quente</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="golpeAriete">Existe risco de golpe de aríete?</label>
-        <select id="golpeAriete">
-          <option value="nao">Não informado / não</option>
-          <option value="sim">Sim</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="fluido">Tipo de fluido</label>
-        <select id="fluido">
-          <option value="agua-fria">Água fria</option>
-          <option value="agua-quente">Água quente</option>
-          <option value="quimico">Produto químico</option>
-          <option value="efluente">Efluente</option>
-          <option value="nao-informado">Não informado</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="margemSeguranca">Margem de segurança desejada</label>
-        <select id="margemSeguranca">
-          <option value="1.00">Sem margem extra</option>
-          <option value="0.90" selected>Conservadora - 10%</option>
-          <option value="0.80">Alta segurança - 20%</option>
-        </select>
-      </div>
-    </section>
-
-    <div style="display:flex;gap:14px;flex-wrap:wrap;">
-      <button onclick="calcular()" style="flex:1;min-width:240px;">Calcular e comparar materiais</button>
-
-      <button onclick="limparFormulario()" style="background:#334155;flex:0.4;min-width:180px;">
-        Limpar dados
-      </button>
-    </div>
-
-    <section id="results" class="results">
-      <div id="pvcuCard" class="result-card"></div>
-      <div id="cpvcCard" class="result-card"></div>
-      <div id="recommendation" class="recommendation"></div>
-    </section>
-
-    <p class="disclaimer">
-      Observação: os fatores de redução usados nesta versão são valores preliminares de referência para construir a lógica da calculadora.
-      Para uso comercial real, substitua pelas tabelas oficiais do fabricante, norma aplicável e classe exata do produto.
-    </p>
-  </main>
+    </main>
+  </div>
 
   <script>
     const fatoresPVCU = [
-      { temp: 20, fator: 1.00 },
-      { temp: 30, fator: 0.87 },
-      { temp: 40, fator: 0.70 },
-      { temp: 50, fator: 0.58 },
-      { temp: 60, fator: 0.45 }
+      { temp: 20, fator: 1.00 }, { temp: 30, fator: 0.87 }, { temp: 40, fator: 0.70 }, { temp: 50, fator: 0.58 }, { temp: 60, fator: 0.45 }
     ];
-
     const fatoresCPVC = [
-      { temp: 20, fator: 1.00 },
-      { temp: 30, fator: 0.95 },
-      { temp: 40, fator: 0.85 },
-      { temp: 50, fator: 0.75 },
-      { temp: 60, fator: 0.65 },
-      { temp: 70, fator: 0.55 },
-      { temp: 80, fator: 0.45 },
-      { temp: 90, fator: 0.35 }
+      { temp: 20, fator: 1.00 }, { temp: 30, fator: 0.95 }, { temp: 40, fator: 0.85 }, { temp: 50, fator: 0.75 }, { temp: 60, fator: 0.65 }, { temp: 70, fator: 0.55 }, { temp: 80, fator: 0.45 }, { temp: 90, fator: 0.35 }
     ];
 
     function interpolarFator(tabela, temperatura) {
       if (temperatura <= tabela[0].temp) return tabela[0].fator;
       if (temperatura >= tabela[tabela.length - 1].temp) return tabela[tabela.length - 1].fator;
-
       for (let i = 0; i < tabela.length - 1; i++) {
-        const atual = tabela[i];
-        const proximo = tabela[i + 1];
-
+        const atual = tabela[i], proximo = tabela[i + 1];
         if (temperatura >= atual.temp && temperatura <= proximo.temp) {
           const proporcao = (temperatura - atual.temp) / (proximo.temp - atual.temp);
           return atual.fator + proporcao * (proximo.fator - atual.fator);
@@ -343,16 +268,19 @@
 
     function fatorInstalacao(tipoInstalacao, temperaturaAmbiente) {
       let fator = 1;
-
       if (tipoInstalacao === "sol") fator -= 0.10;
       if (tipoInstalacao === "casa-maquinas") fator -= 0.08;
       if (tipoInstalacao === "aparente") fator -= 0.03;
       if (tipoInstalacao === "enterrada") fator -= 0.02;
-
       if (temperaturaAmbiente >= 35) fator -= 0.05;
       if (temperaturaAmbiente >= 45) fator -= 0.10;
-
       return Math.max(fator, 0.70);
+    }
+
+    function classeStatus(utilizacao) {
+      if (utilizacao <= 85) return { classe: "safe", caixa: "safe-box", texto: "ATENDE na pré-análise.", simbolo: "OK" };
+      if (utilizacao <= 100) return { classe: "attention", caixa: "attention-box", texto: "ATENÇÃO: muito próximo do limite calculado.", simbolo: "!" };
+      return { classe: "danger", caixa: "danger-box", texto: "NÃO RECOMENDADO nesta condição preliminar.", simbolo: "X" };
     }
 
     function calcularMaterial(nome, tabela, temperaturaFluido, temperaturaAmbiente, pn, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca) {
@@ -361,89 +289,84 @@
       const fatorGolpe = golpeAriete === "sim" ? 0.85 : 1;
       const pressaoMaxima = pn * fatorTemp * fatorAmbiente * fatorGolpe * margemSeguranca;
       const utilizacao = (pressaoOperacao / pressaoMaxima) * 100;
-
-      let statusClasse = "safe";
-      let statusTexto = "ATENDE na pré-análise.";
-
-      if (utilizacao > 85 && utilizacao <= 100) {
-        statusClasse = "attention";
-        statusTexto = "ATENÇÃO: muito próximo do limite calculado.";
-      }
-
-      if (utilizacao > 100) {
-        statusClasse = "danger";
-        statusTexto = "NÃO RECOMENDADO nesta condição preliminar.";
-      }
-
+      const status = classeStatus(utilizacao);
       let alertas = [];
-
-      if (nome === "PVC-U" && temperaturaFluido > 45) {
-        alertas.push("PVC-U acima de temperaturas moderadas exige muita cautela. Avaliar CPVC ou outro material.");
-      }
-
-      if (nome === "PVC-U" && fluido === "agua-quente") {
-        alertas.push("PVC-U normalmente não é a melhor escolha para água quente.");
-      }
-
-      if (fluido === "quimico") {
-        alertas.push("Obrigatório validar compatibilidade química em tabela técnica específica.");
-      }
-
-      if (golpeAriete === "sim") {
-        alertas.push("Golpe de aríete pode elevar a pressão instantânea acima da pressão de operação.");
-      }
-
-      return {
-        nome,
-        fatorTemp,
-        fatorAmbiente,
-        fatorGolpe,
-        pressaoMaxima,
-        utilizacao,
-        statusClasse,
-        statusTexto,
-        alertas
-      };
+      if (nome === "PVC-U" && temperaturaFluido > 45) alertas.push("PVC-U acima de temperaturas moderadas exige cautela. Avaliar CPVC ou outro material.");
+      if (nome === "PVC-U" && fluido === "agua-quente") alertas.push("PVC-U normalmente não é a melhor escolha para água quente.");
+      if (fluido === "quimico") alertas.push("Obrigatório validar compatibilidade química em tabela técnica específica.");
+      if (golpeAriete === "sim") alertas.push("Golpe de aríete pode elevar a pressão instantânea acima da pressão de operação.");
+      return { nome, fatorTemp, fatorAmbiente, fatorGolpe, pressaoMaxima, utilizacao, status, alertas };
     }
 
     function renderCard(elementId, resultado) {
       const card = document.getElementById(elementId);
-      const alertasHtml = resultado.alertas.length
-        ? `<div class="status attention">${resultado.alertas.join("<br>")}</div>`
-        : "";
-
+      const alertasHtml = resultado.alertas.length ? `<div class="status attention-box technical-only">${resultado.alertas.join("<br>")}</div>` : "";
       card.innerHTML = `
-        <h2>${resultado.nome}</h2>
-        <div class="metric"><span>Fator por temperatura</span><strong>${resultado.fatorTemp.toFixed(2)}</strong></div>
-        <div class="metric"><span>Fator por instalação/ambiente</span><strong>${resultado.fatorAmbiente.toFixed(2)}</strong></div>
-        <div class="metric"><span>Fator por golpe de aríete</span><strong>${resultado.fatorGolpe.toFixed(2)}</strong></div>
+        <div class="result-top">
+          <h3>${resultado.nome}</h3>
+          <div class="traffic ${resultado.status.classe}">${resultado.status.simbolo}</div>
+        </div>
+        <div class="metric technical-only"><span>Fator por temperatura</span><strong>${resultado.fatorTemp.toFixed(2)}</strong></div>
+        <div class="metric technical-only"><span>Fator por instalação/ambiente</span><strong>${resultado.fatorAmbiente.toFixed(2)}</strong></div>
+        <div class="metric technical-only"><span>Fator por golpe de aríete</span><strong>${resultado.fatorGolpe.toFixed(2)}</strong></div>
         <div class="metric"><span>Pressão máxima estimada</span><strong>${resultado.pressaoMaxima.toFixed(2)} bar</strong></div>
-        <div class="metric"><span>Uso da capacidade calculada</span><strong>${resultado.utilizacao.toFixed(1)}%</strong></div>
-        <div class="status ${resultado.statusClasse}">${resultado.statusTexto}</div>
+        <div class="metric technical-only"><span>Uso da capacidade calculada</span><strong>${resultado.utilizacao.toFixed(1)}%</strong></div>
+        <div class="status ${resultado.status.caixa}">${resultado.status.texto}</div>
         ${alertasHtml}
       `;
     }
 
     function gerarRecomendacao(pvcu, cpvc, temperaturaFluido, fluido) {
-      if (pvcu.statusClasse === "safe" && cpvc.statusClasse === "safe") {
-        if (temperaturaFluido <= 40 && fluido !== "agua-quente") {
-          return "Os dois materiais aparecem como possíveis na pré-análise. Comercialmente, o PVC-U pode ser considerado quando o fluido, temperatura, pressão e compatibilidade química permitirem. Ainda assim, valide a linha exata do fabricante.";
-        }
-        return "Os dois materiais aparecem como possíveis, mas o CPVC oferece maior margem térmica para temperaturas elevadas. Para aplicação quente, o CPVC tende a ser a escolha mais segura.";
+      if (pvcu.status.classe === "safe" && cpvc.status.classe === "safe") {
+        if (temperaturaFluido <= 40 && fluido !== "agua-quente") return "Os dois materiais aparecem como possíveis na pré-análise. O PVC-U pode ser considerado se fluido, pressão, temperatura e compatibilidade química forem validados.";
+        return "Os dois materiais aparecem como possíveis, mas o CPVC apresenta maior margem térmica para aplicações com temperatura elevada.";
       }
+      if (pvcu.status.classe !== "safe" && cpvc.status.classe === "safe") return "Recomendação preliminar: CPVC. O PVC-U ficou em condição de atenção ou não recomendado para os dados informados.";
+      if (pvcu.status.classe === "safe" && cpvc.status.classe !== "safe") return "Resultado incomum: PVC-U aparece melhor que CPVC. Verifique se a pressão nominal e a linha informadas são equivalentes nos dois materiais.";
+      return "Nenhum dos dois materiais ficou confortável na pré-análise. Revisar pressão nominal, temperatura, golpe de aríete, fluido, linha do produto ou considerar classe/material superior.";
+    }
 
-      if (pvcu.statusClasse !== "safe" && cpvc.statusClasse === "safe") {
-        return "Recomendação preliminar: CPVC. O PVC-U ficou em condição de atenção ou não recomendado para os dados informados.";
-      }
+    function renderChart(pn, pressaoOperacao, pvcu, cpvc) {
+      const max = Math.max(pn, pressaoOperacao, pvcu.pressaoMaxima, cpvc.pressaoMaxima);
+      const linhas = [
+        { label: "PN informado", valor: pn, tipo: "pn" },
+        { label: "PVC-U reduzida", valor: pvcu.pressaoMaxima, tipo: "reduzida" },
+        { label: "CPVC reduzida", valor: cpvc.pressaoMaxima, tipo: "reduzida" },
+        { label: "Operação", valor: pressaoOperacao, tipo: "operacao" }
+      ];
+      document.getElementById("chartContent").innerHTML = linhas.map(l => `
+        <div class="chart-row">
+          <strong>${l.label}</strong>
+          <div class="bar-bg"><div class="bar ${l.tipo}" style="width:${Math.min((l.valor / max) * 100, 100)}%"></div></div>
+          <span>${l.valor.toFixed(2)} bar</span>
+        </div>
+      `).join("");
+    }
 
-      if (pvcu.statusClasse === "safe" && cpvc.statusClasse !== "safe") {
-        return "Resultado incomum: PVC-U aparece melhor que CPVC nesta simulação. Verifique se a pressão nominal informada corresponde à mesma classe de produto para os dois materiais.";
-      }
+    function gerarTextoCliente(pvcu, cpvc, recomendacao, pn, pressaoOperacao, temperaturaFluido) {
+      return `Pré-análise de pressão por temperatura:
 
-      return "Nenhum dos dois materiais ficou confortável na pré-análise. É necessário revisar pressão nominal, temperatura, golpe de aríete, fluido e talvez considerar outro material ou classe superior.";
+Dados informados:
+- Pressão nominal: PN ${pn} bar
+- Pressão de operação: ${pressaoOperacao} bar
+- Temperatura do fluido: ${temperaturaFluido}°C
+
+Resultado estimado:
+- PVC-U: ${pvcu.pressaoMaxima.toFixed(2)} bar (${pvcu.status.texto})
+- CPVC: ${cpvc.pressaoMaxima.toFixed(2)} bar (${cpvc.status.texto})
+
+${recomendacao}
+
+Observação: resultado preliminar. Necessário validar catálogo oficial, compatibilidade química, norma aplicável, instalação e condições reais de operação.`;
+    }
+
+    function alterarModo() {
+      const modo = document.querySelector('input[name="modo"]:checked').value;
+      document.getElementById("app").classList.toggle("commercial-mode", modo === "comercial");
     }
 
     function limparFormulario() {
+      document.getElementById("linha").value = "preliminar";
       document.getElementById("pn").value = "16";
       document.getElementById("pressaoOperacao").value = "";
       document.getElementById("temperaturaFluido").value = "";
@@ -472,16 +395,15 @@
 
       const pvcu = calcularMaterial("PVC-U", fatoresPVCU, temperaturaFluido, temperaturaAmbiente, pn, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca);
       const cpvc = calcularMaterial("CPVC", fatoresCPVC, temperaturaFluido, temperaturaAmbiente, pn, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca);
+      const recomendacao = gerarRecomendacao(pvcu, cpvc, temperaturaFluido, fluido);
 
       renderCard("pvcuCard", pvcu);
       renderCard("cpvcCard", cpvc);
-
-      document.getElementById("recommendation").innerHTML = `
-        <strong>Recomendação:</strong><br>
-        ${gerarRecomendacao(pvcu, cpvc, temperaturaFluido, fluido)}
-      `;
-
+      renderChart(pn, pressaoOperacao, pvcu, cpvc);
+      document.getElementById("recommendation").innerHTML = `<strong>Recomendação automática:</strong><br>${recomendacao}`;
+      document.getElementById("textoCliente").value = gerarTextoCliente(pvcu, cpvc, recomendacao, pn, pressaoOperacao, temperaturaFluido);
       document.getElementById("results").style.display = "block";
+      alterarModo();
     }
   </script>
 </body>
