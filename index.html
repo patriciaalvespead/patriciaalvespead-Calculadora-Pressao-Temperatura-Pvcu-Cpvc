@@ -8,44 +8,21 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
     body { background: #eef3f7; color: #0f172a; padding: 22px; }
     .site { max-width: 1120px; margin: 0 auto; }
-    .hero {
-      background: linear-gradient(135deg, #0f172a, #115e59);
-      color: white;
-      border-radius: 22px 22px 0 0;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 22px;
-      align-items: center;
-    }
+    .hero { background: linear-gradient(135deg, #0f172a, #115e59); color: white; border-radius: 22px 22px 0 0; padding: 28px; display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center; }
     .brand { display: flex; align-items: center; gap: 16px; }
-    .logo {
-      width: 68px; height: 68px; border-radius: 18px;
-      background: rgba(255,255,255,.14);
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(255,255,255,.22);
-      font-weight: 900; font-size: 22px;
-    }
+    .logo { width: 68px; height: 68px; border-radius: 18px; background: rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.22); font-weight: 900; font-size: 22px; }
     .hero h1 { font-size: 28px; margin-bottom: 7px; }
     .hero p { color: #dbeafe; line-height: 1.5; max-width: 760px; }
     .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-    .link-btn, .print-btn {
-      border: none; border-radius: 12px; padding: 13px 16px; color: white;
-      text-decoration: none; font-weight: 800; cursor: pointer; display: inline-block;
-    }
+    .link-btn, .print-btn { border: none; border-radius: 12px; padding: 13px 16px; color: white; text-decoration: none; font-weight: 800; cursor: pointer; display: inline-block; }
     .link-btn { background: #14b8a6; }
     .print-btn { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.24); }
-    .container {
-      background: #ffffff; border-radius: 0 0 22px 22px; padding: 28px;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-    }
+    .container { background: #ffffff; border-radius: 0 0 22px 22px; padding: 28px; box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08); }
     .intro { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
     .intro h2 { font-size: 27px; margin-bottom: 8px; }
     .intro p { color: #475569; line-height: 1.5; max-width: 760px; }
     .badge { background:#ecfeff; color:#155e75; padding:10px 14px; border-radius:12px; border:1px solid #a5f3fc; font-weight:800; height:max-content; }
-    .warning-box, .legal-box {
-      padding: 14px 16px; border-radius: 12px; margin-bottom: 22px; font-size: 14px; line-height: 1.5;
-    }
+    .warning-box, .legal-box { padding: 14px 16px; border-radius: 12px; margin-bottom: 22px; font-size: 14px; line-height: 1.5; }
     .warning-box { background: #fff7ed; border-left: 5px solid #f97316; }
     .legal-box { background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; }
     .mode-box { background:#f1f5f9; border:1px solid #dbe3ef; border-radius:16px; padding:14px; margin-bottom:20px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
@@ -53,10 +30,8 @@
     .mode-option { display:flex; gap:6px; align-items:center; font-weight:700; }
     .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 22px; }
     label { font-weight: 800; display: block; margin-bottom: 7px; color: #0f172a; }
-    input, select, textarea {
-      width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 15px; background: #fff;
-    }
-    textarea { min-height: 82px; resize: vertical; }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 15px; background: #fff; }
+    textarea { min-height: 92px; resize: vertical; }
     input:focus, select:focus, textarea:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12); }
     .button-row { display: flex; gap: 14px; flex-wrap: wrap; }
     button { padding: 15px; border: none; border-radius: 12px; color: white; font-size: 16px; font-weight: 800; cursor: pointer; transition: 0.2s; }
@@ -79,10 +54,10 @@
     .attention-box { background: #fef3c7; color: #92400e; }
     .danger-box { background: #fee2e2; color: #991b1b; }
     .chart-box { background:#ffffff; border:1px solid #e2e8f0; border-radius:18px; padding:20px; margin-top:18px; }
-    .chart-row { display:grid; grid-template-columns: 120px 1fr 72px; gap:12px; align-items:center; margin:12px 0; }
+    .chart-row { display:grid; grid-template-columns: 145px 1fr 82px; gap:12px; align-items:center; margin:12px 0; }
     .bar-bg { background:#e5e7eb; height:18px; border-radius:999px; overflow:hidden; }
     .bar { height:100%; border-radius:999px; }
-    .bar.pn { background:#64748b; }
+    .bar.nominal { background:#64748b; }
     .bar.reduzida { background:#0f766e; }
     .bar.operacao { background:#ef4444; }
     .recommendation, .copy-box { border-radius: 16px; margin-top: 18px; line-height: 1.5; padding:18px; }
@@ -92,20 +67,8 @@
     .technical-only { display: block; }
     .commercial-mode .technical-only { display: none; }
     .disclaimer { margin-top: 24px; font-size: 13px; color: #64748b; line-height: 1.5; }
-    @media (max-width: 760px) {
-      body { padding: 10px; }
-      .hero { grid-template-columns: 1fr; padding: 22px; }
-      .hero-actions { justify-content:flex-start; }
-      .form-grid, .comparison-grid { grid-template-columns: 1fr; }
-      .container { padding: 20px; }
-      .intro h2 { font-size: 23px; }
-    }
-    @media print {
-      body { background:white; padding:0; }
-      .hero-actions, .button-row, .mode-box { display:none; }
-      .site { max-width:100%; }
-      .container, .hero { box-shadow:none; border-radius:0; }
-    }
+    @media (max-width: 760px) { body { padding: 10px; } .hero { grid-template-columns: 1fr; padding: 22px; } .hero-actions { justify-content:flex-start; } .form-grid, .comparison-grid { grid-template-columns: 1fr; } .container { padding: 20px; } .intro h2 { font-size: 23px; } .chart-row { grid-template-columns: 1fr; gap:6px; } }
+    @media print { body { background:white; padding:0; } .hero-actions, .button-row, .mode-box { display:none; } .site { max-width:100%; } .container, .hero { box-shadow:none; border-radius:0; } }
   </style>
 </head>
 <body>
@@ -115,7 +78,7 @@
         <div class="logo">PA</div>
         <div>
           <h1>Patricia Alves | Consultoria em PEAD | PVC-U | CPVC </h1>
-          <p>Calculadora preliminar para comparação de PVC-U e CPVC considerando pressão, temperatura e condição de aplicação.</p>
+          <p>Calculadora preliminar para comparação de PVC-U e CPVC considerando pressão, temperatura, bitola e condição de aplicação.</p>
         </div>
       </div>
       <div class="hero-actions">
@@ -128,17 +91,17 @@
       <section class="intro">
         <div>
           <h2>Calculadora de Pressão por Temperatura</h2>
-          <p>Compare a pressão estimada para PVC-U e CPVC. Use como apoio comercial/técnico inicial, nunca como aprovação final de projeto.</p>
+          <p>Compare a pressão estimada para PVC-U e CPVC. PVC-U SCH80 já utiliza tabela por bitola com referência de 23°C e 60°C. CPVC permanece preliminar até inserir tabela oficial equivalente.</p>
         </div>
-        <div class="badge">PVC-U • CPVC • Pré-análise</div>
+        <div class="badge">PVC-U SCH80 • CPVC • Pré-análise</div>
       </section>
 
       <div class="warning-box">
-        <strong>Atenção:</strong> quanto maior a temperatura do fluido, menor tende a ser a pressão admissível do sistema. A temperatura do fluido é a temperatura dentro da tubulação, não necessariamente a temperatura da casa de bombas.
+        <strong>Atenção:</strong> a pressão admissível muda com a bitola, temperatura e linha do produto. Não use apenas PN genérico para validar aplicação quente.
       </div>
 
       <div class="legal-box">
-        <strong>Proteção técnica:</strong> ferramenta preliminar sem responsabilidade de projeto. O resultado depende de validação com engenharia, catálogo oficial do fabricante, compatibilidade química, norma aplicável, instalação, vida útil de projeto e condições reais de operação.
+        <strong>Proteção técnica:</strong> ferramenta preliminar sem responsabilidade de projeto. Resultado baseado em tubo PVC-U SCH80 e fatores preliminares para CPVC. Não representa automaticamente válvulas, conexões, adesivo, flanges ou sistema completo. Validar com engenharia, catálogo oficial, compatibilidade química, norma aplicável e condições reais de operação.
       </div>
 
       <div class="mode-box">
@@ -149,36 +112,48 @@
 
       <section class="form-grid">
         <div>
-          <label for="linha">Linha / base de cálculo</label>
-          <select id="linha">
-            <option value="preliminar" selected>Preliminar - fatores genéricos</option>
-            <option value="aqua" disabled>Aqua Plastic oficial - inserir tabela técnica</option>
-            <option value="din" disabled>DIN - inserir tabela técnica</option>
-            <option value="sch80" disabled>SCH80 - inserir tabela técnica</option>
+          <label for="materialBase">Base principal</label>
+          <select id="materialBase">
+            <option value="comparar" selected>Comparar PVC-U x CPVC</option>
+            <option value="pvcu">Somente PVC-U SCH80</option>
+            <option value="cpvc">Somente CPVC preliminar</option>
           </select>
         </div>
+
         <div>
-          <label for="pn">Pressão nominal da peça / tubo</label>
-          <select id="pn">
-            <option value="6">PN 6 bar</option>
-            <option value="10">PN 10 bar</option>
-            <option value="16" selected>PN 16 bar</option>
-            <option value="20">PN 20 bar</option>
-            <option value="25">PN 25 bar</option>
+          <label for="bitola">Bitola do tubo</label>
+          <select id="bitola">
+            <option value="1/2">1/2”</option>
+            <option value="3/4">3/4”</option>
+            <option value="1">1”</option>
+            <option value="1 1/4">1 1/4”</option>
+            <option value="1 1/2">1 1/2”</option>
+            <option value="2" selected>2”</option>
+            <option value="2 1/2">2 1/2”</option>
+            <option value="3">3”</option>
+            <option value="4">4”</option>
+            <option value="6">6”</option>
+            <option value="8">8”</option>
+            <option value="10">10”</option>
+            <option value="12">12”</option>
           </select>
         </div>
+
         <div>
           <label for="pressaoOperacao">Pressão real de operação do cliente (bar)</label>
           <input type="number" id="pressaoOperacao" min="0" step="0.1" placeholder="Ex.: 8" />
         </div>
+
         <div>
           <label for="temperaturaFluido">Temperatura do fluido dentro da tubulação (°C)</label>
           <input type="number" id="temperaturaFluido" min="0" max="110" step="1" placeholder="Ex.: 45" />
         </div>
+
         <div>
           <label for="temperaturaAmbiente">Temperatura ambiente aproximada (°C)</label>
           <input type="number" id="temperaturaAmbiente" min="0" max="80" step="1" placeholder="Ex.: 30" />
         </div>
+
         <div>
           <label for="instalacao">Tipo de instalação</label>
           <select id="instalacao">
@@ -189,6 +164,7 @@
             <option value="casa-maquinas">Casa de máquinas / ambiente quente</option>
           </select>
         </div>
+
         <div>
           <label for="golpeAriete">Existe risco de golpe de aríete?</label>
           <select id="golpeAriete">
@@ -196,6 +172,7 @@
             <option value="sim">Sim</option>
           </select>
         </div>
+
         <div>
           <label for="fluido">Tipo de fluido</label>
           <select id="fluido">
@@ -206,6 +183,7 @@
             <option value="nao-informado">Não informado</option>
           </select>
         </div>
+
         <div>
           <label for="margemSeguranca">Margem de segurança desejada</label>
           <select id="margemSeguranca">
@@ -241,18 +219,45 @@
       </section>
 
       <p class="disclaimer">
-        Base atual: fatores preliminares genéricos para construir a lógica da calculadora. Para uso comercial mais forte, substituir pela tabela oficial de redução de pressão por temperatura do fabricante/linha correspondente. Os catálogos de medidas de PVC-U e CPVC não substituem a tabela de derating térmico.
+        Base PVC-U: tabela SCH80 por bitola com pressão máxima a 23°C e 60°C. Para temperaturas intermediárias, a ferramenta interpola os valores. CPVC ainda usa base preliminar até inserir a tabela oficial por bitola. O sistema final pode ser limitado por válvulas, conexões, juntas, adesivo, flanges ou condições de instalação.
       </p>
     </main>
   </div>
 
   <script>
-    const fatoresPVCU = [
-      { temp: 20, fator: 1.00 }, { temp: 30, fator: 0.87 }, { temp: 40, fator: 0.70 }, { temp: 50, fator: 0.58 }, { temp: 60, fator: 0.45 }
+    const tabelaPVCUSCH80 = {
+      "1/2": { p23: 58.6, p60: 12.9 },
+      "3/4": { p23: 47.6, p60: 10.5 },
+      "1": { p23: 43.4, p60: 9.6 },
+      "1 1/4": { p23: 35.9, p60: 7.9 },
+      "1 1/2": { p23: 32.4, p60: 7.1 },
+      "2": { p23: 27.6, p60: 6.1 },
+      "2 1/2": { p23: 29.0, p60: 6.4 },
+      "3": { p23: 25.5, p60: 5.6 },
+      "4": { p23: 22.1, p60: 4.9 },
+      "6": { p23: 19.3, p60: 4.3 },
+      "8": { p23: 17.2, p60: 3.8 },
+      "10": { p23: 15.9, p60: 3.5 },
+      "12": { p23: 15.9, p60: 3.5 }
+    };
+
+    const fatoresCPVCPreliminar = [
+      { temp: 20, fator: 1.00 },
+      { temp: 30, fator: 0.95 },
+      { temp: 40, fator: 0.85 },
+      { temp: 50, fator: 0.75 },
+      { temp: 60, fator: 0.65 },
+      { temp: 70, fator: 0.55 },
+      { temp: 80, fator: 0.45 },
+      { temp: 90, fator: 0.35 }
     ];
-    const fatoresCPVC = [
-      { temp: 20, fator: 1.00 }, { temp: 30, fator: 0.95 }, { temp: 40, fator: 0.85 }, { temp: 50, fator: 0.75 }, { temp: 60, fator: 0.65 }, { temp: 70, fator: 0.55 }, { temp: 80, fator: 0.45 }, { temp: 90, fator: 0.35 }
-    ];
+
+    function interpolarEntreDoisPontos(temp, temp1, valor1, temp2, valor2) {
+      if (temp <= temp1) return valor1;
+      if (temp >= temp2) return valor2;
+      const proporcao = (temp - temp1) / (temp2 - temp1);
+      return valor1 + proporcao * (valor2 - valor1);
+    }
 
     function interpolarFator(tabela, temperatura) {
       if (temperatura <= tabela[0].temp) return tabela[0].fator;
@@ -283,57 +288,120 @@
       return { classe: "danger", caixa: "danger-box", texto: "NÃO RECOMENDADO nesta condição preliminar.", simbolo: "X" };
     }
 
-    function calcularMaterial(nome, tabela, temperaturaFluido, temperaturaAmbiente, pn, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca) {
-      const fatorTemp = interpolarFator(tabela, temperaturaFluido);
+    function calcularPVCU(bitola, temperaturaFluido, temperaturaAmbiente, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca) {
+      const dados = tabelaPVCUSCH80[bitola];
+      const pressaoTabela = interpolarEntreDoisPontos(temperaturaFluido, 23, dados.p23, 60, dados.p60);
       const fatorAmbiente = fatorInstalacao(instalacao, temperaturaAmbiente);
       const fatorGolpe = golpeAriete === "sim" ? 0.85 : 1;
-      const pressaoMaxima = pn * fatorTemp * fatorAmbiente * fatorGolpe * margemSeguranca;
+      const pressaoMaxima = pressaoTabela * fatorAmbiente * fatorGolpe * margemSeguranca;
       const utilizacao = (pressaoOperacao / pressaoMaxima) * 100;
       const status = classeStatus(utilizacao);
       let alertas = [];
-      if (nome === "PVC-U" && temperaturaFluido > 45) alertas.push("PVC-U acima de temperaturas moderadas exige cautela. Avaliar CPVC ou outro material.");
-      if (nome === "PVC-U" && fluido === "agua-quente") alertas.push("PVC-U normalmente não é a melhor escolha para água quente.");
+
+      if (temperaturaFluido > 60) alertas.push("PVC-U SCH80: a tabela informada vai até 60°C. Acima disso, não considerar sem validação formal do fabricante.");
+      if (temperaturaFluido > 45) alertas.push("PVC-U em temperatura elevada exige cautela. Avaliar CPVC ou outro material.");
+      if (fluido === "agua-quente") alertas.push("PVC-U normalmente não é a melhor escolha para água quente.");
       if (fluido === "quimico") alertas.push("Obrigatório validar compatibilidade química em tabela técnica específica.");
       if (golpeAriete === "sim") alertas.push("Golpe de aríete pode elevar a pressão instantânea acima da pressão de operação.");
-      return { nome, fatorTemp, fatorAmbiente, fatorGolpe, pressaoMaxima, utilizacao, status, alertas };
+
+      return {
+        nome: "PVC-U SCH80",
+        origem: "Tabela por bitola 23°C/60°C",
+        pressaoNominalReferencia: dados.p23,
+        pressaoTabela,
+        fatorTemp: pressaoTabela / dados.p23,
+        fatorAmbiente,
+        fatorGolpe,
+        pressaoMaxima,
+        utilizacao,
+        status,
+        alertas
+      };
     }
 
-    function renderCard(elementId, resultado) {
+    function calcularCPVCPreliminar(bitola, temperaturaFluido, temperaturaAmbiente, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca) {
+      const referenciaPVCU = tabelaPVCUSCH80[bitola].p23;
+      const fatorTemp = interpolarFator(fatoresCPVCPreliminar, temperaturaFluido);
+      const fatorAmbiente = fatorInstalacao(instalacao, temperaturaAmbiente);
+      const fatorGolpe = golpeAriete === "sim" ? 0.85 : 1;
+      const pressaoMaxima = referenciaPVCU * fatorTemp * fatorAmbiente * fatorGolpe * margemSeguranca;
+      const utilizacao = (pressaoOperacao / pressaoMaxima) * 100;
+      const status = classeStatus(utilizacao);
+      let alertas = ["CPVC ainda está em base preliminar. Inserir tabela oficial por bitola antes de usar como referência comercial forte."];
+
+      if (fluido === "quimico") alertas.push("Obrigatório validar compatibilidade química em tabela técnica específica.");
+      if (golpeAriete === "sim") alertas.push("Golpe de aríete pode elevar a pressão instantânea acima da pressão de operação.");
+
+      return {
+        nome: "CPVC preliminar",
+        origem: "Fatores genéricos provisórios",
+        pressaoNominalReferencia: referenciaPVCU,
+        pressaoTabela: referenciaPVCU * fatorTemp,
+        fatorTemp,
+        fatorAmbiente,
+        fatorGolpe,
+        pressaoMaxima,
+        utilizacao,
+        status,
+        alertas
+      };
+    }
+
+    function renderCard(elementId, resultado, ocultar) {
       const card = document.getElementById(elementId);
+      if (ocultar) {
+        card.style.display = "none";
+        return;
+      }
+      card.style.display = "block";
       const alertasHtml = resultado.alertas.length ? `<div class="status attention-box technical-only">${resultado.alertas.join("<br>")}</div>` : "";
       card.innerHTML = `
         <div class="result-top">
           <h3>${resultado.nome}</h3>
           <div class="traffic ${resultado.status.classe}">${resultado.status.simbolo}</div>
         </div>
-        <div class="metric technical-only"><span>Fator por temperatura</span><strong>${resultado.fatorTemp.toFixed(2)}</strong></div>
+        <div class="metric technical-only"><span>Base utilizada</span><strong>${resultado.origem}</strong></div>
+        <div class="metric technical-only"><span>Pressão referência a 23°C</span><strong>${resultado.pressaoNominalReferencia.toFixed(2)} bar</strong></div>
+        <div class="metric technical-only"><span>Pressão pela temperatura do fluido</span><strong>${resultado.pressaoTabela.toFixed(2)} bar</strong></div>
+        <div class="metric technical-only"><span>Fator equivalente por temperatura</span><strong>${resultado.fatorTemp.toFixed(2)}</strong></div>
         <div class="metric technical-only"><span>Fator por instalação/ambiente</span><strong>${resultado.fatorAmbiente.toFixed(2)}</strong></div>
         <div class="metric technical-only"><span>Fator por golpe de aríete</span><strong>${resultado.fatorGolpe.toFixed(2)}</strong></div>
-        <div class="metric"><span>Pressão máxima estimada</span><strong>${resultado.pressaoMaxima.toFixed(2)} bar</strong></div>
+        <div class="metric"><span>Pressão máxima estimada final</span><strong>${resultado.pressaoMaxima.toFixed(2)} bar</strong></div>
         <div class="metric technical-only"><span>Uso da capacidade calculada</span><strong>${resultado.utilizacao.toFixed(1)}%</strong></div>
         <div class="status ${resultado.status.caixa}">${resultado.status.texto}</div>
         ${alertasHtml}
       `;
     }
 
-    function gerarRecomendacao(pvcu, cpvc, temperaturaFluido, fluido) {
+    function gerarRecomendacao(pvcu, cpvc, modoBase, temperaturaFluido, fluido) {
+      if (modoBase === "pvcu") {
+        return "Resultado baseado em PVC-U SCH80 por bitola. Atenção: isso representa tubo, não o sistema completo. Válvulas, conexões, adesivo e flanges podem ter limites diferentes.";
+      }
+      if (modoBase === "cpvc") {
+        return "Resultado de CPVC ainda preliminar. Não usar como referência final até inserir tabela oficial por bitola/linha.";
+      }
       if (pvcu.status.classe === "safe" && cpvc.status.classe === "safe") {
         if (temperaturaFluido <= 40 && fluido !== "agua-quente") return "Os dois materiais aparecem como possíveis na pré-análise. O PVC-U pode ser considerado se fluido, pressão, temperatura e compatibilidade química forem validados.";
-        return "Os dois materiais aparecem como possíveis, mas o CPVC apresenta maior margem térmica para aplicações com temperatura elevada.";
+        return "Os dois materiais aparecem como possíveis, mas o CPVC tende a oferecer maior margem térmica para aplicações com temperatura elevada. Confirmar com tabela oficial de CPVC.";
       }
-      if (pvcu.status.classe !== "safe" && cpvc.status.classe === "safe") return "Recomendação preliminar: CPVC. O PVC-U ficou em condição de atenção ou não recomendado para os dados informados.";
-      if (pvcu.status.classe === "safe" && cpvc.status.classe !== "safe") return "Resultado incomum: PVC-U aparece melhor que CPVC. Verifique se a pressão nominal e a linha informadas são equivalentes nos dois materiais.";
-      return "Nenhum dos dois materiais ficou confortável na pré-análise. Revisar pressão nominal, temperatura, golpe de aríete, fluido, linha do produto ou considerar classe/material superior.";
+      if (pvcu.status.classe !== "safe" && cpvc.status.classe === "safe") return "Recomendação preliminar: avaliar CPVC. O PVC-U SCH80 ficou em condição de atenção ou não recomendado para os dados informados.";
+      if (pvcu.status.classe === "safe" && cpvc.status.classe !== "safe") return "PVC-U SCH80 aparece viável na pré-análise. Porém o resultado de CPVC está preliminar e não deve ser usado para descarte técnico sem tabela oficial.";
+      return "Nenhum dos dois materiais ficou confortável na pré-análise. Revisar pressão, temperatura, bitola, golpe de aríete, fluido, linha do produto ou considerar classe/material superior.";
     }
 
-    function renderChart(pn, pressaoOperacao, pvcu, cpvc) {
-      const max = Math.max(pn, pressaoOperacao, pvcu.pressaoMaxima, cpvc.pressaoMaxima);
-      const linhas = [
-        { label: "PN informado", valor: pn, tipo: "pn" },
-        { label: "PVC-U reduzida", valor: pvcu.pressaoMaxima, tipo: "reduzida" },
-        { label: "CPVC reduzida", valor: cpvc.pressaoMaxima, tipo: "reduzida" },
-        { label: "Operação", valor: pressaoOperacao, tipo: "operacao" }
-      ];
+    function renderChart(pressaoOperacao, pvcu, cpvc, modoBase) {
+      let linhas = [];
+      if (modoBase !== "cpvc") {
+        linhas.push({ label: "PVC-U 23°C", valor: pvcu.pressaoNominalReferencia, tipo: "nominal" });
+        linhas.push({ label: "PVC-U final", valor: pvcu.pressaoMaxima, tipo: "reduzida" });
+      }
+      if (modoBase !== "pvcu") {
+        linhas.push({ label: "CPVC ref. 23°C", valor: cpvc.pressaoNominalReferencia, tipo: "nominal" });
+        linhas.push({ label: "CPVC final", valor: cpvc.pressaoMaxima, tipo: "reduzida" });
+      }
+      linhas.push({ label: "Operação", valor: pressaoOperacao, tipo: "operacao" });
+
+      const max = Math.max(...linhas.map(l => l.valor));
       document.getElementById("chartContent").innerHTML = linhas.map(l => `
         <div class="chart-row">
           <strong>${l.label}</strong>
@@ -343,21 +411,12 @@
       `).join("");
     }
 
-    function gerarTextoCliente(pvcu, cpvc, recomendacao, pn, pressaoOperacao, temperaturaFluido) {
-      return `Pré-análise de pressão por temperatura:
+    function gerarTextoCliente(pvcu, cpvc, recomendacao, modoBase, bitola, pressaoOperacao, temperaturaFluido) {
+      let resultados = "";
+      if (modoBase !== "cpvc") resultados += `- PVC-U SCH80: ${pvcu.pressaoMaxima.toFixed(2)} bar (${pvcu.status.texto})\n`;
+      if (modoBase !== "pvcu") resultados += `- CPVC preliminar: ${cpvc.pressaoMaxima.toFixed(2)} bar (${cpvc.status.texto})\n`;
 
-Dados informados:
-- Pressão nominal: PN ${pn} bar
-- Pressão de operação: ${pressaoOperacao} bar
-- Temperatura do fluido: ${temperaturaFluido}°C
-
-Resultado estimado:
-- PVC-U: ${pvcu.pressaoMaxima.toFixed(2)} bar (${pvcu.status.texto})
-- CPVC: ${cpvc.pressaoMaxima.toFixed(2)} bar (${cpvc.status.texto})
-
-${recomendacao}
-
-Observação: resultado preliminar. Necessário validar catálogo oficial, compatibilidade química, norma aplicável, instalação e condições reais de operação.`;
+      return `Pré-análise de pressão por temperatura:\n\nDados informados:\n- Bitola: ${bitola}\n- Pressão de operação: ${pressaoOperacao} bar\n- Temperatura do fluido: ${temperaturaFluido}°C\n\nResultado estimado:\n${resultados}\n${recomendacao}\n\nObservação: resultado preliminar. Necessário validar catálogo oficial, compatibilidade química, norma aplicável, instalação, conexões, válvulas, juntas, adesivo e condições reais de operação.`;
     }
 
     function alterarModo() {
@@ -366,8 +425,8 @@ Observação: resultado preliminar. Necessário validar catálogo oficial, compa
     }
 
     function limparFormulario() {
-      document.getElementById("linha").value = "preliminar";
-      document.getElementById("pn").value = "16";
+      document.getElementById("materialBase").value = "comparar";
+      document.getElementById("bitola").value = "2";
       document.getElementById("pressaoOperacao").value = "";
       document.getElementById("temperaturaFluido").value = "";
       document.getElementById("temperaturaAmbiente").value = "";
@@ -379,7 +438,8 @@ Observação: resultado preliminar. Necessário validar catálogo oficial, compa
     }
 
     function calcular() {
-      const pn = Number(document.getElementById("pn").value);
+      const modoBase = document.getElementById("materialBase").value;
+      const bitola = document.getElementById("bitola").value;
       const pressaoOperacao = Number(document.getElementById("pressaoOperacao").value);
       const temperaturaFluido = Number(document.getElementById("temperaturaFluido").value);
       const temperaturaAmbiente = Number(document.getElementById("temperaturaAmbiente").value);
@@ -393,15 +453,15 @@ Observação: resultado preliminar. Necessário validar catálogo oficial, compa
         return;
       }
 
-      const pvcu = calcularMaterial("PVC-U", fatoresPVCU, temperaturaFluido, temperaturaAmbiente, pn, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca);
-      const cpvc = calcularMaterial("CPVC", fatoresCPVC, temperaturaFluido, temperaturaAmbiente, pn, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca);
-      const recomendacao = gerarRecomendacao(pvcu, cpvc, temperaturaFluido, fluido);
+      const pvcu = calcularPVCU(bitola, temperaturaFluido, temperaturaAmbiente, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca);
+      const cpvc = calcularCPVCPreliminar(bitola, temperaturaFluido, temperaturaAmbiente, pressaoOperacao, instalacao, golpeAriete, fluido, margemSeguranca);
+      const recomendacao = gerarRecomendacao(pvcu, cpvc, modoBase, temperaturaFluido, fluido);
 
-      renderCard("pvcuCard", pvcu);
-      renderCard("cpvcCard", cpvc);
-      renderChart(pn, pressaoOperacao, pvcu, cpvc);
+      renderCard("pvcuCard", pvcu, modoBase === "cpvc");
+      renderCard("cpvcCard", cpvc, modoBase === "pvcu");
+      renderChart(pressaoOperacao, pvcu, cpvc, modoBase);
       document.getElementById("recommendation").innerHTML = `<strong>Recomendação automática:</strong><br>${recomendacao}`;
-      document.getElementById("textoCliente").value = gerarTextoCliente(pvcu, cpvc, recomendacao, pn, pressaoOperacao, temperaturaFluido);
+      document.getElementById("textoCliente").value = gerarTextoCliente(pvcu, cpvc, recomendacao, modoBase, bitola, pressaoOperacao, temperaturaFluido);
       document.getElementById("results").style.display = "block";
       alterarModo();
     }
