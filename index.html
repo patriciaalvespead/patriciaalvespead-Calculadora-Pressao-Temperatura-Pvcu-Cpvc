@@ -186,8 +186,29 @@
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Calculadora de Pressão por Temperatura</h1>
+  <header style="background:#0f172a;padding:18px 28px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+    <div>
+      <h2 style="color:white;font-size:24px;margin-bottom:6px;">Patricia Alves | Engenharia Comercial</h2>
+      <p style="color:#cbd5e1;font-size:14px;line-height:1.5;max-width:700px;">
+        Calculadora técnica preliminar para análise de pressão por temperatura em sistemas PVC-U e CPVC.
+      </p>
+    </div>
+
+    <a href="https://linktr.ee/patriciaalvespead" target="_blank" style="background:#14b8a6;color:white;padding:14px 18px;border-radius:12px;text-decoration:none;font-weight:700;transition:0.2s;display:inline-block;">
+      Meus contatos
+    </a>
+  </header>
+
+  <main class="container" style="border-radius:0 0 18px 18px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
+      <div>
+        <h1>Calculadora de Pressão por Temperatura</h1>
+      </div>
+
+      <div style="background:#ecfeff;padding:10px 14px;border-radius:12px;border:1px solid #a5f3fc;">
+        <strong style="color:#155e75;">PVC-U • CPVC • Engenharia Aplicada</strong>
+      </div>
+    </div>
     <p class="subtitle">
       Compare PVC-U e CPVC considerando pressão nominal, temperatura de trabalho e condição de instalação.
       O objetivo é indicar uma pré-análise de segurança para seleção do material.
@@ -265,7 +286,13 @@
       </div>
     </section>
 
-    <button onclick="calcular()">Calcular e comparar materiais</button>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <button onclick="calcular()" style="flex:1;min-width:240px;">Calcular e comparar materiais</button>
+
+      <button onclick="limparFormulario()" style="background:#334155;flex:0.4;min-width:180px;">
+        Limpar dados
+      </button>
+    </div>
 
     <section id="results" class="results">
       <div id="pvcuCard" class="result-card"></div>
@@ -414,6 +441,18 @@
       }
 
       return "Nenhum dos dois materiais ficou confortável na pré-análise. É necessário revisar pressão nominal, temperatura, golpe de aríete, fluido e talvez considerar outro material ou classe superior.";
+    }
+
+    function limparFormulario() {
+      document.getElementById("pn").value = "16";
+      document.getElementById("pressaoOperacao").value = "";
+      document.getElementById("temperaturaFluido").value = "";
+      document.getElementById("temperaturaAmbiente").value = "";
+      document.getElementById("instalacao").value = "interna";
+      document.getElementById("golpeAriete").value = "nao";
+      document.getElementById("fluido").value = "agua-fria";
+      document.getElementById("margemSeguranca").value = "0.90";
+      document.getElementById("results").style.display = "none";
     }
 
     function calcular() {
